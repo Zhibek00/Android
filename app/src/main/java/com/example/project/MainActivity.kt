@@ -12,15 +12,16 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.inf)
-       // val myDataset = DataSource().loadAffirmations()
+        supportActionBar?.hide()
+        setContentView(R.layout.main_page)
+        val myDataset = DataSource().loadAffirmations()
 
-        //val recyclerView = findViewById<RecyclerView>(R.id.rec)
-        //recyclerView.adapter = RecycleAdapter(this, myDataset)
+        val recyclerView = findViewById<RecyclerView>(R.id.rec)
+        recyclerView.adapter = RecycleAdapter(this, myDataset)
 
-        //recyclerView.setHasFixedSize(true)
-        //val listview = findViewById<ListView>(R.id.list)
-        //listview.adapter= ArrayListAdapter(this,myDataset)
+        recyclerView.setHasFixedSize(true)
+        val listview = findViewById<ListView>(R.id.list)
+        listview.adapter= ArrayListAdapter(this,myDataset)
 
     }
 }
