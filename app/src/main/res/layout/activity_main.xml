@@ -3,16 +3,120 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#F8F4F0">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="275dp"
+        android:layout_height="499dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="556dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="275dp"
+        android:layout_height="499dp"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="-250dp"
+        android:rotation="180"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shape" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="270dp"
+        android:fontFamily="@font/rubik"
+        android:text="Login"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="E-mail"
+        android:textSize="15sp"
+
+        app:layout_constraintBottom_toTopOf="@id/edit2"
+        app:layout_constraintStart_toStartOf="@id/edit2" />
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="Password"
+        android:textSize="15sp"
+
+        app:layout_constraintBottom_toTopOf="@id/edit1"
+        app:layout_constraintStart_toStartOf="@id/edit1" />
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/edit2"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+
+
+
+        app:layout_constraintTop_toBottomOf="@id/textView"
+
+        >
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+
+            android:background="@drawable/enter"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:inputType="textEmailAddress"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textView" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+
+        android:id="@+id/edit1"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+
+
+
+        app:layout_constraintTop_toBottomOf="@id/edit2"
+        app:passwordToggleEnabled="true"
+        >
+
+        <EditText
+            android:id="@+id/edit0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/enter"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:inputType="text"
+
+            android:textSize="18sp"
+
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
