@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment"
+    >
 
+    <fragment
+        android:id="@+id/toursFragment"
+        android:name="com.example.project.ToursFragment"
+        android:label="ToursFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.project.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_toursFragment"
+            app:destination="@id/toursFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.project.HelpFragment"
+        android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.example.project.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
 </navigation>

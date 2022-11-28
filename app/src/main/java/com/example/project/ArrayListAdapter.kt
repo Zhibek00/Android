@@ -11,7 +11,7 @@ import android.widget.TextView
 import java.security.AccessControlContext
 
 public  class ArrayListAdapter(val context: Activity, val dataset: List<Affirmation>) : ArrayAdapter<Affirmation>(context,R.layout.array_list,dataset) {
-
+    var onItemClick:((Affirmation) -> Unit)? = null
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
       // val inflater :LayoutInflater = LayoutInflater.from(context)
@@ -24,7 +24,10 @@ public  class ArrayListAdapter(val context: Activity, val dataset: List<Affirmat
 
         image.setImageResource(dataset[position].a)
         text.text=dataset[position].b
+            view.setOnClickListener {
+                onItemClick?.invoke(dataset[position])
 
+            }
 
         return view
     }

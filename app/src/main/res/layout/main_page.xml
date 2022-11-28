@@ -56,7 +56,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:text="Most Popular"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/cont"
@@ -78,7 +78,8 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginBottom="70dp"
         android:id="@+id/list"
 
         android:orientation="vertical"
@@ -86,5 +87,8 @@
 
 
     </ListView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

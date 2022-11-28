@@ -1,6 +1,8 @@
 package com.example.project
 
+
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class RecycleAdapter(private val context: Context, val dataset: List<Affirmation>):RecyclerView.Adapter<RecycleAdapter.ItemViewHolder>()  {
-
+     var onItemClick:((Affirmation) -> Unit)? = null
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: ImageView = view.findViewById(R.id.r1)
@@ -25,7 +27,13 @@ class RecycleAdapter(private val context: Context, val dataset: List<Affirmation
 
         holder.textView1.text = item.b
         holder.textView.setImageResource(item.a);
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(item)
+
+        }
+
     }
+
 
     override fun getItemCount(): Int {
         return dataset.size

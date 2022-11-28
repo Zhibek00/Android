@@ -1,7 +1,7 @@
 package com.example.project
 
 class DataTours {
-    fun loadAffirmations(): List<Affirmation> {
+    fun loadAffirmations(): List<Affirmation>  {
         return listOf<Affirmation>(
             Affirmation(R.drawable.p1,"h"),
             Affirmation(R.drawable.p2,"d"),

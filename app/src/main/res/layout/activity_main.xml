@@ -4,119 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
-    android:layout_height="match_parent"
-    android:background="#F8F4F0">
+    android:layout_height="match_parent">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="275dp"
-        android:layout_height="499dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="556dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shape" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="275dp"
-        android:layout_height="499dp"
-        android:layout_marginStart="-40dp"
-        android:layout_marginTop="-250dp"
-        android:rotation="180"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shape" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="270dp"
-        android:fontFamily="@font/rubik"
-        android:text="Login"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="E-mail"
-        android:textSize="15sp"
-
-        app:layout_constraintBottom_toTopOf="@id/edit2"
-        app:layout_constraintStart_toStartOf="@id/edit2" />
-
-    <TextView
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="Password"
-        android:textSize="15sp"
-
-        app:layout_constraintBottom_toTopOf="@id/edit1"
-        app:layout_constraintStart_toStartOf="@id/edit1" />
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/edit2"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-
-
-
-        app:layout_constraintTop_toBottomOf="@id/textView"
-
-        >
-        <EditText
-            android:id="@+id/edit"
+        <fragment
+            android:id="@+id/myNavHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-
-            android:background="@drawable/enter"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:inputType="textEmailAddress"
-            android:textSize="18sp"
+            android:layout_height="match_parent"
+            app:navGraph="@navigation/navigation"
+            app:defaultNavHost="true"
+            />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottomNv"
+            app:menu="@menu/bottom_nav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textView" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/edit1"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 
-        app:layout_constraintTop_toBottomOf="@id/edit2"
-        app:passwordToggleEnabled="true"
-        >
-
-        <EditText
-            android:id="@+id/edit0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/enter"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:inputType="text"
-
-            android:textSize="18sp"
+        <!-- TODO (04) Add a fragment tag for the titleFragment in the LinearLayout
+             Use @+id/titleFragment for the android:id
+             Use com.example.android.navigation.TitleFragment for the android:name
+             Use match_parent for the layout_height and layout_width -->
 
 
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
