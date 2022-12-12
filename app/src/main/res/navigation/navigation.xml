@@ -9,7 +9,11 @@
     <fragment
         android:id="@+id/toursFragment"
         android:name="com.example.project.ToursFragment"
-        android:label="ToursFragment" />
+        android:label="ToursFragment" >
+        <action
+            android:id="@+id/action_toursFragment_to_infoFragment2"
+            app:destination="@id/infoFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.project.LoginFragment"
@@ -26,5 +30,21 @@
         android:id="@+id/basketFragment"
         android:name="com.example.project.BasketFragment"
         android:label="fragment_basket"
-        tools:layout="@layout/fragment_basket" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_basketFragment_to_infoFragment2"
+            app:destination="@id/infoFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment2"
+        android:name="com.example.project.InfoFragment"
+        android:label="InfoFragment" >
+        <action
+            android:id="@+id/action_infoFragment2_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.project.BookingFragment"
+        android:label="BookingFragment" />
 </navigation>

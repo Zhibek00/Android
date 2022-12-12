@@ -5,25 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.project.databinding.FragmentBasketBinding
-import com.example.project.databinding.LoginBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+// TODO:
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BasketFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class BasketFragment : Fragment() {
     lateinit var binding : FragmentBasketBinding
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    private lateinit var viewModel: ToursViewModel
 
 
     override fun onCreateView(
@@ -32,7 +23,27 @@ class BasketFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentBasketBinding.inflate(layoutInflater)
+
+        viewModel = ViewModelProvider(this).get(ToursViewModel::class.java)
+        val recyclerView = binding.rec
+        viewModel.basketData.observe(viewLifecycleOwner, Observer { tourlist ->
+            val adapter = BasketAdapter(this , tourlist)
+            recyclerView.adapter = adapter
+
+            /*   adapter.onItemClick = {
+                   val intent = Intent(requireContext(), InfoFragment::class.java)
+                   intent.putExtra("affir", it)
+                   requireContext().startActivity(intent)
+               }*/
+        })
+
         return binding.root
+
+    }
+
+    fun getPackageName(): String? {
+          return context?.packageName;
+
 
     }
 

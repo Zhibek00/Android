@@ -1,17 +1,19 @@
 package com.example.project
 
 
-import android.content.Context
-import android.content.Intent
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
-class RecycleAdapter(private val context: Context, val dataset: List<Affirmation>):RecyclerView.Adapter<RecycleAdapter.ItemViewHolder>()  {
-     var onItemClick:((Affirmation) -> Unit)? = null
+
+class RecycleAdapter(private val context: ToursFragment, val dataset: List<Tours>):RecyclerView.Adapter<RecycleAdapter.ItemViewHolder>()  {
+     var onItemClick:((Tours) -> Unit)? = null
 
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val textView: ImageView = view.findViewById(R.id.r1)
@@ -22,15 +24,20 @@ class RecycleAdapter(private val context: Context, val dataset: List<Affirmation
         return ItemViewHolder(adapterLayout)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
-        holder.textView1.text = item.b
-        holder.textView.setImageResource(item.a);
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(item)
+        holder.textView1.text = item.name
 
-        }
+        val identifier=context.resources.getIdentifier(item.image1,"drawable",context.getPackageName())
+        holder.textView.setImageResource(identifier)
+        holder.itemView.setOnClickListener {view: View ->
+     //       onItemClick?.invoke(item)
+            val bundle = bundleOf("amount" to position)
+            view.findNavController().navigate(R.id.action_toursFragment_to_infoFragment2,bundle)
+
+       }
 
     }
 
@@ -38,4 +45,5 @@ class RecycleAdapter(private val context: Context, val dataset: List<Affirmation
     override fun getItemCount(): Int {
         return dataset.size
     }
+
 }
